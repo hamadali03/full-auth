@@ -1,9 +1,9 @@
 import { create } from "zustand";
 import axios from "axios";
 
-const API_URL = "https://full-auth-back.vercel.app/api/auth" 
+const API_URL = 
 // import.meta.env.MODE === "development" ? 
-
+"https://full-auth-back.vercel.app/api/auth" 
 // : "/api/auth";
 
 axios.defaults.withCredentials = true;
