@@ -14,7 +14,7 @@ const app=express()
 const __dirname = path.resolve();
 // const port=process.env.PORT||4000
 
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({ origin: ["https://full-auth-uf63.vercel.app/"],methods:["GET","POST","PUT","DELETE"], credentials: true }));
 
 //middleware
 
