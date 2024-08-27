@@ -65,7 +65,7 @@ const ForgotPasswordPage = () => {
 							If an account exists for {email}, you will receive a password reset link shortly.
 						</p>
 					</div>
-				)}
+				)}  
 			</div>
 
 			<div className='px-8 py-4 bg-gray-900 bg-opacity-50 flex justify-center'>

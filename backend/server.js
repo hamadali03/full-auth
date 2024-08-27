@@ -14,9 +14,9 @@ const app=express()
 const __dirname = path.resolve();
 // const port=process.env.PORT||4000
 
-app.use(cors({ origin: ["https://full-auth-uf63.vercel.app/"],methods:["GET","POST","PUT","DELETE"], credentials: true }));
+app.use(cors({ origin: ["https://full-auth-uf63.vercel.app/"],methods:["GET","POST"], credentials: true }));
 // app.use(cors());
-
+ 
 //middleware
 
 app.use(express.json())  // allows us to parse incoming request:req.body

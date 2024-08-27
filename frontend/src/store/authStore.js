@@ -1,9 +1,9 @@
 import { create } from "zustand";
 import axios from "axios";
 
-const API_URL = 
+const API_URL = "https://full-auth-back.vercel.app/api/auth" 
 // import.meta.env.MODE === "development" ? 
-"https://full-auth-back.vercel.app/api/auth" 
+// "https://full-auth-back.vercel.app/api/auth" 
 // : "/api/auth";
 
 axios.defaults.withCredentials = true;
@@ -13,7 +13,7 @@ export const useAuthStore = create((set) => ({
 	isAuthenticated: false,
 	error: null,
 	isLoading: false,
-	isCheckingAuth: true,
+	isCheckingAuth: true, 
 	message: null,
 
 	signup: async (email, password, name) => {
