@@ -13,8 +13,10 @@ Connect()
 const app=express()
 const __dirname = path.resolve();
 // const port=process.env.PORT||4000
-app.use(cors({origin:'http://localhost:5173', credentials: true}));
-  //  'https://full-auth-front.vercel.app/',
+app.use(cors({
+  origin: 'https://full-auth-front.vercel.app',
+  credentials: true
+}));
 // app.use(cors());
  
 //middleware
