@@ -1,17 +1,20 @@
 import { create } from "zustand";
 import axios from "axios";
 
-const API_URL = "https://full-auth-back.vercel.app/api/auth" 
-// import.meta.env.MODE === "development" ? 
-// "https://full-auth-back.vercel.app/api/auth" 
-// : "/api/auth";
-
 axios.defaults.withCredentials = true;
+const API_URL = import.meta.env.MODE === "development" 
+    ? "https://full-auth-back.vercel.app/api/auth" 
+    : "/api/auth";
+
+// "https://full-auth-back.vercel.app/api/auth" 
+
+  
+
 
 export const useAuthStore = create((set) => ({
 	user: null,
 	isAuthenticated: false,
-	error: null,
+	error: null, 
 	isLoading: false,
 	isCheckingAuth: true, 
 	message: null,
@@ -43,7 +46,7 @@ export const useAuthStore = create((set) => ({
 	},
 
 	logout: async () => {
-		set({ isLoading: true, error: null });
+		set({ isLoading: true, error: null }); 
 		try {
 			await axios.post(`${API_URL}/logout`);
 			set({ user: null, isAuthenticated: false, error: null, isLoading: false });
