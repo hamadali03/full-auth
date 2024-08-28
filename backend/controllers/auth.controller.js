@@ -89,6 +89,9 @@ import bcryptjs from "bcryptjs"
 		if (!user) {
 			return res.status(400).json({ success: false, message: "Invalid credentials" });
 		}
+		if (!user.isVerified) {
+            return res.status(400).json({ success: false, message: "Email not verified" });
+        }
 		const isPasswordValid = await bcryptjs.compare(password, user.password);
 		if (!isPasswordValid) {
 			return res.status(400).json({ success: false, message: "Invalid credentials" });
