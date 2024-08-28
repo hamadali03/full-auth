@@ -5,6 +5,10 @@ import { formatDate } from "../utils/date";
 const DashboardPage = () => {
 	const { user, logout } = useAuthStore();
 
+	if (!user) {
+		return <p>Loading...</p>; // Or redirect to a login page
+	}
+
 	const handleLogout = () => {
 		logout();
 	};
