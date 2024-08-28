@@ -13,7 +13,7 @@ import ResetPasswordPage from "./pages/ResetPasswordPage"
 const ProtectedRoute = ({ children }) => {
 	const { isAuthenticated, user } = useAuthStore();
 
-	if (!isAuthenticated) {
+	if (!isAuthenticated || !user) {
 		return <Navigate to='/login' replace />;
 	}
 
@@ -28,7 +28,7 @@ const ProtectedRoute = ({ children }) => {
 const RedirectAuthenticatedUser = ({ children }) => {
 	const { isAuthenticated, user } = useAuthStore();
 
-	if (isAuthenticated && user.isVerified) {
+	if (isAuthenticated && user && user.isVerified) {
 		return <Navigate to='/' replace />;
 	}
 

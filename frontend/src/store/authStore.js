@@ -34,10 +34,10 @@ export const useAuthStore = create((set) => ({
 		set({ isLoading: true, error: null });
 		try {
 			const response = await axios.post(`${API_URL}/login`, { email, password });
-			console.log('Login response:', response.data);
+			const user = response.data.user || null;  // Ensure user is set to null if undefined
 			set({
-				isAuthenticated: true,
-				user: response.data.user,
+				isAuthenticated: !!user,
+				user,
 				error: null,
 				isLoading: false,
 			});
@@ -47,6 +47,24 @@ export const useAuthStore = create((set) => ({
 			throw error;
 		}
 	},
+	
+	// login: async (email, password) => {
+	// 	set({ isLoading: true, error: null });
+	// 	try {
+	// 		const response = await axios.post(`${API_URL}/login`, { email, password });
+	// 		// console.log('Login response:', response.data);
+	// 		set({
+	// 			isAuthenticated: true,
+	// 			user: response.data.user,
+	// 			error: null,
+	// 			isLoading: false,
+	// 		});
+	// 	} catch (error) {
+	// 		console.error('Login error:', error.response?.data);
+	// 		set({ error: error.response?.data?.message || "Error logging in", isLoading: false });
+	// 		throw error;
+	// 	}
+	// },
 	
 
 	logout: async () => {
